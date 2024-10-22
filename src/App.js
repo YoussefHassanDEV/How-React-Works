@@ -39,9 +39,9 @@ function Tabbed({ content }) {
       </div>
 
       {activeTab <= 2 ? (
-        <TabContent 
-        item={content.at(activeTab)}
-        key={content.at(activeTab).summary}
+        <TabContent
+          item={content.at(activeTab)}
+          key={content.at(activeTab).summary}
         />
       ) : (
         <DifferentContent />
@@ -68,8 +68,10 @@ function TabContent({ item }) {
   function handleInc() {
     setLikes(likes + 1);
   }
-  function handleUndo()
-  {
+  function handleTripleInc() {
+    setLikes(likes + 3)
+  }
+  function handleUndo() {
     setShowDetails(true);
     setLikes(0)
   }
@@ -86,7 +88,7 @@ function TabContent({ item }) {
         <div className="hearts-counter">
           <span>{likes} ❤️</span>
           <button onClick={handleInc}>+</button>
-          <button>+++</button>
+          <button onClick={handleTripleInc}>+++</button>
         </div>
       </div>
 
